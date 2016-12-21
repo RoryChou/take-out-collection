@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <meta name="viewport" content="width=device-width,user-scale=no,initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="section" id="home">
+        <ul class="restaurants"></ul>
+    </div>
+    <div class="section" id="rank"><a href="#home">排名页，回首页</a></div>
+    <div class="section" id="citylist">
+        <h1>城市选择页</h1>
+        <a href="#form" class="guess"></a>
+        <div class="hot-list">
+            <h1>热门城市</h1>
+            <ul id="hotcity" class="4-list">
+
+            </ul>
+        </div>
+        <div class="nav-list">
+            <h1>城市大写字母拼音导航</h1>
+            <ul class="al-list">
+            </ul>
+        </div>
+        <h1>分组城市列表的展示</h1>
+        <div class="list-wrapper">
+            <div class="item-city">
+                <h1>A</h1>
+                <ul class="city-list">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="form">
+        <p>选择城市
+            <a href="#citylist" id="form-city">上海</a>
+        </p>
+        <input type="text" id="city-name" name="cityname">
+        <div class="btns">
+            <button id="elm">饿了么搜索</button>
+            <button id="baidu">百度外卖搜索</button>
+            <button id="meituan">美团搜索</button>
+        </div>
+        <ul id="content">
+
+        </ul>
+    </div>
+
+    <script src="js/plugin/zepto.js"></script>
+    <script src="js/plugin/director.js"></script>
+    <script src="js/plugin/rem.js"></script>
+    <script src="js/modules/home.js"></script>
+    <script src="js/modules/form.js"></script>
+    <script src="js/modules/rank.js"></script>
+    <script src="js/modules/citylist.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
