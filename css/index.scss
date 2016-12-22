@@ -1,6 +1,12 @@
+@charset "UTF-8";
+//变量
+$color-main: #3190e8;
+$root-font-size: 23.4375;
+$r: 1/($root-font-size*2);
 
 html,body {
   height: 100%;
+  font-family: Helvetica Neue,Tahoma,Arial,PingFangSC-Regular,Hiragino Sans GB,Microsoft Yahei,sans-serif;
 }
 
 .section {
@@ -12,8 +18,109 @@ html,body {
   background-color: #f5f5f5;
 
 }
-#rank {
-  background-color: #3c3;
+#foods {
+  /* 商家简介 */
+  .head {
+    background-color: #666666;
+    .head-main {
+      display: flex;
+      height: 195rem*$r;
+      padding-top: 12rem*$r;
+      .logo img{
+        width: 140rem*$r;
+        height: 140rem*$r;
+        border: 1px solid #fff;
+        margin: 0 20rem*$r 0 35rem*$r;
+      }
+      .desc {
+        flex: 1;
+        height: 100%;
+      }
+    }
+  }
+  /* 商品列表 */
+  .main {
+    //顶部选项卡：商品、商家
+    .nav {
+      display: flex;
+      border-bottom: 1px solid #e5e5e5;
+      li {
+        flex: 1;
+        text-align: center;
+        height: 91rem*$r;
+        font-size: 28rem*$r;
+        span{
+          font-family: "Microsoft Yahei";
+          font-weight: 600;
+          display: inline-block;
+          margin-top: 16rem*$r;
+          padding-bottom: 6rem*$r;
+          padding: 6rem*$r 3rem*$r;
+        }
+        &.active span{
+          color: $color-main;
+          border-bottom: 4rem*$r solid $color-main;
+        }
+      }
+    }
+    //details
+    .details {
+      display: flex;
+      .menu {
+        flex: 1;
+        background-color: #f5f5f5;
+        li {
+          display: block;
+          height: 102rem*$r;
+          line-height: 102rem*$r;
+          text-align: center;
+          font-size: 28rem*$r;
+          border-bottom: 1px solid #e5e5e5;
+          &.active {
+            border-left: 6rem*$r solid $color-main;
+            background-color: #fff;
+          }
+        }
+      }
+      .container {
+        flex: 3;
+        dl {
+          font-size: 28rem*$r;
+          dt {
+            height: 63rem*$r;
+            padding: 0 16rem*$r;
+            line-height: 63rem*$r;
+            background-color: #e5e5e5;
+          }
+          dd {
+            display: flex;
+            box-sizing: border-box;
+            height: 278.95rem*$r;
+            padding: 30rem*$r 20rem*$r;
+            .food-img {
+              flex: 2;
+              display: block;
+              margin-right: 4%;
+            }
+            .food-info {
+              position: relative;
+              flex: 8;
+              .food-tit {
+                font-size: 33rem*$r;
+                font-weight: 700;
+              }
+              .food-price {
+                position: absolute;
+                bottom: 0;
+                color: #f60;
+                font-size: 32rem*$r;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 #citylist {
   li {

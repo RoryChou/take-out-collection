@@ -56,7 +56,7 @@ formObj = $.extend(formObj,{
                 },
                 type: 'get',
                 success: function(res){
-                    //console.log(res)
+                    console.log(res)
                     //动态生成结果内容
                     //that.contentBox.empty();
                     var str = '';
@@ -94,7 +94,7 @@ formObj = $.extend(formObj,{
     baidu: function(){
         var that =this;
         this.baiduBtn.click(function(){
-            console.log('click')
+            //console.log('click')
             //获取输入框内容
             var content = $('#city-name').val();
             if(that.baidu_city_id === "undefined"){

@@ -6,10 +6,19 @@
  */
 
 /* 利用Object的create方法，创建homeObj的原型继承对象 */
-var rankObj = Object.create(homeObj);
+var foodsObj = Object.create(homeObj);
 
 /* 利用zepto的extend方法，合并两个对象 */
-rankObj = $.extend(rankObj,{
+foodsObj = $.extend(foodsObj,{
     name: '排名页',
-    elem: $('#rank')
+    restaurants: $('#foods'),
+    init: function () {
+        this.bindEvent()
+    },
+    bindEvent: function(){
+
+    },
+    renderResElm: function(){
+        alert(1)
+    }
 });

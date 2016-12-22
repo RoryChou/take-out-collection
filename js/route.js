@@ -6,7 +6,7 @@ var current = null;
 /* 建立对象与hash映射表 */
 var HashModuleMap = {
     home: homeObj,
-    rank: rankObj,
+    foods: foodsObj,
     form: formObj,
     citylist: cityObj
 };
@@ -23,6 +23,10 @@ function routeController(id){
     if(hash[0] === 'home'){
         hash = 'home';
         HashModuleMap['home'].hash();
+    }
+    if(hash[0] === 'foods'){
+        hash = 'foods';
+        HashModuleMap['foods'].hash();
     }
     hash = hash ||'home';
     /* 前一张leave，当前张enter*/

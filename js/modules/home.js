@@ -23,7 +23,7 @@ var homeObj = {
         var locations = location.hash.split('-');
         this.lat = locations[1];
         this.lon = locations[2];
-        var platform = locations[3];
+        var platform = locations[(locations.length-1)];
         if(platform == "elm"){
             this.renderResElm();
         }else if(platform == "baidu"){
@@ -51,7 +51,7 @@ var homeObj = {
                 //console.log(res)
                 var str = '';
                 for(var i in res){
-                    str += '<li>'+ res[i].name +'</li>'
+                    str += '<li><a href="#foods-'+ res[i].id +'-elm">'+ res[i].name +'</li>'
                 }
                 that.restaurants.html(str);
             }
