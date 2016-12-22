@@ -12,8 +12,11 @@ html, body {
 
 #foods {
   /* 商家简介 */
+  display: flex;
+  flex-direction: column;
   /* 商品列表 */ }
   #foods .head {
+    flex: 1.5;
     background-color: #666666; }
     #foods .head .head-main {
       display: flex;
@@ -27,68 +30,75 @@ html, body {
       #foods .head .head-main .desc {
         flex: 1;
         height: 100%; }
-  #foods .main .nav {
-    display: flex;
-    border-bottom: 1px solid #e5e5e5; }
-    #foods .main .nav li {
-      flex: 1;
-      text-align: center;
-      height: 1.94133rem;
-      font-size: 0.59733rem; }
-      #foods .main .nav li span {
-        font-family: "Microsoft Yahei";
-        font-weight: 600;
-        display: inline-block;
-        margin-top: 0.34133rem;
-        padding-bottom: 0.128rem;
-        padding: 0.128rem 0.064rem; }
-      #foods .main .nav li.active span {
-        color: #3190e8;
-        border-bottom: 0.08533rem solid #3190e8; }
-  #foods .main .details {
-    display: flex; }
-    #foods .main .details .menu {
-      flex: 1;
-      background-color: #f5f5f5; }
-      #foods .main .details .menu li {
-        display: block;
-        height: 2.176rem;
-        line-height: 2.176rem;
+  #foods .main {
+    flex: 8.5; }
+    #foods .main .nav {
+      display: flex;
+      border-bottom: 1px solid #e5e5e5; }
+      #foods .main .nav li {
+        flex: 1;
         text-align: center;
-        font-size: 0.59733rem;
-        border-bottom: 1px solid #e5e5e5; }
-        #foods .main .details .menu li.active {
-          border-left: 0.128rem solid #3190e8;
-          background-color: #fff; }
-    #foods .main .details .container {
-      flex: 3; }
-      #foods .main .details .container dl {
+        height: 1.94133rem;
         font-size: 0.59733rem; }
-        #foods .main .details .container dl dt {
-          height: 1.344rem;
-          padding: 0 0.34133rem;
-          line-height: 1.344rem;
-          background-color: #e5e5e5; }
-        #foods .main .details .container dl dd {
-          display: flex;
-          box-sizing: border-box;
-          height: 5.95093rem;
-          padding: 0.64rem 0.42667rem; }
-          #foods .main .details .container dl dd .food-img {
-            flex: 2;
-            display: block;
-            margin-right: 4%; }
-          #foods .main .details .container dl dd .food-info {
-            position: relative;
-            flex: 8; }
-            #foods .main .details .container dl dd .food-info .food-tit {
-              font-size: 0.704rem;
-              font-weight: 700; }
-            #foods .main .details .container dl dd .food-info .food-price {
-              position: absolute;
-              bottom: 0;
-              color: #f60;
-              font-size: 0.68267rem; }
+        #foods .main .nav li span {
+          font-family: "Microsoft Yahei";
+          font-weight: 600;
+          display: inline-block;
+          margin-top: 0.34133rem;
+          padding-bottom: 0.128rem;
+          padding: 0.128rem 0.064rem; }
+        #foods .main .nav li.active span {
+          color: #3190e8;
+          border-bottom: 0.08533rem solid #3190e8; }
+    #foods .main .details {
+      display: flex; }
+      #foods .main .details .pane-left {
+        overflow: hidden;
+        position: relative;
+        flex: 1; }
+      #foods .main .details .menu {
+        overflow-y: auto;
+        height: 100%;
+        background-color: #f5f5f5; }
+        #foods .main .details .menu li {
+          display: block;
+          height: 2.176rem;
+          line-height: 2.176rem;
+          text-align: center;
+          font-size: 0.59733rem;
+          border-bottom: 1px solid #e5e5e5; }
+          #foods .main .details .menu li.active {
+            border-left: 0.128rem solid #3190e8;
+            background-color: #fff; }
+      #foods .main .details .container {
+        flex: 3; }
+        #foods .main .details .container dl {
+          font-size: 0.59733rem; }
+          #foods .main .details .container dl dt {
+            height: 1.344rem;
+            padding: 0 0.34133rem;
+            line-height: 1.344rem;
+            background-color: #e5e5e5; }
+          #foods .main .details .container dl dd {
+            display: flex;
+            box-sizing: border-box;
+            height: 5.95093rem;
+            padding: 0.64rem 0.42667rem; }
+            #foods .main .details .container dl dd .food-img {
+              flex: 2;
+              display: block;
+              margin-right: 4%; }
+            #foods .main .details .container dl dd .food-info {
+              position: relative;
+              flex: 8; }
+              #foods .main .details .container dl dd .food-info .food-tit {
+                font-size: 0.704rem;
+                font-weight: 700; }
+              #foods .main .details .container dl dd .food-info .food-price {
+                position: absolute;
+                bottom: 0;
+                color: #f60;
+                font-size: 0.68267rem; }
 
 #citylist li {
   overflow: hidden; }
