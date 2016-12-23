@@ -61,10 +61,10 @@ formObj = $.extend(formObj,{
                     //that.contentBox.empty();
                     var str = '';
                     for(var key in res){
-                        var address = res[key].address;
+                        var name = res[key].name;
                         var lat = res[key].latitude;
                         var lon = res[key].longitude;
-                        str += '<li><a href="#home-'+ lat +'-'+ lon +'-elm">'+ address +'</a></li>'
+                        str += '<li><a href="#home-'+ lat +'-'+ lon +'-elm">'+ name +'</a></li>'
                     }
                     that.contentBox.html(str);
                 }

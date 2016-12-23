@@ -14,23 +14,71 @@ foodsObj = $.extend(foodsObj,{
     elem: $('#foods'),
     restaurants: $('.container'),
     menu: $('.menu'),
+    paneRight: $('.pane-right'),
+    menuLists: null,
+    scrollFlag: true,
+    scrT: $('.pane-right').scrollTop(),
     init: function () {
         this.bindEvent()
     },
     bindEvent: function(){
-        //iscroll
+        //scroll event
+        var that = this;
+        this.paneRight.on('scroll',function(){
+            if(that.scrollFlag) {
+                that.scrollFlag = false;
+                //判断每个dt的相对高度,当其小于零的时候，进行menu的切换操作
+                that.scrT = this.scrollTop;
+                //console.log(scrT)
+                for (var i in that.dtMenuArr) {
+                    if (that.scrT < that.dtMenuArr[i]) {
+                        i = (i == 0? 1:i);
+                        that.menuActive(that.menuLists.eq(i - 1));
+                        that.scrollFlag = true;
+                        break;
+                    }
+                }
+            }
+        });
 
+        /*处理点击事件*/
+        var move = 0;
+        this.menu.on('click','li', function () {
+            if(that.scrollFlag){
+                that.scrollFlag = false;
+                that.menuActive($(this));
+                var attr = 'dt[data-name="'+ this.innerHTML +'"]';
+                var target = $(attr);
+                var fatherTop = $('.container').offset().top;
+                var y = target.offset().top - fatherTop;
 
-        //处理点击事件
-        this.menu.on('click','li', function (ev) {
-            console.log(this);
-
+                //$('.pane-right').scrollTop(y);
+                var dis = y-that.scrT;
+                var timer = setInterval(function () {
+                    that.scrT += dis/(500/13);
+                    if((dis >= 0 && that.scrT >= y)||(dis <= 0 && that.scrT <= y)){
+                        that.scrT = y;
+                        that.scrollFlag = true;
+                        console.log(1)
+                        clearInterval(timer)
+                    }
+                    $('.pane-right').scrollTop(that.scrT+2);
+                },13)
+            }
         })
+        //添加商品
+        this.restaurants.on('click','.cart-btn', function () {
+            console.log()
+        })
+
+    },
+    menuActive: function (elem) {
+        elem.addClass('active').siblings().removeClass('active');
     },
     renderResElm: function(){
         var that = this;
         //根据hash中的店铺ID来获取餐厅信息
-        //商品列表
+        //店铺信息
         $.ajax({
             url: '/shopping/restaurant/'+ this.lat +'',
             /*data: {
@@ -65,24 +113,38 @@ foodsObj = $.extend(foodsObj,{
                             +'</dl>'
                     str2 += '<li>'+ res[i].name +'</li>'
                 }
-                //that.restaurants.html(str);
+                that.restaurants.html(str)
                 that.menu.html(str2);
-
+                that.menuLists = $('.menu li');
+                that.menuActive(that.menuLists.eq(0));
                 //当列表渲染完成之后，对模拟滚动条进行初始化操作
 
                 if(that.leftScroll && that.rightScroll) {
                     that.leftScroll.destroy(); //破环掉
                     that.rightScroll.destroy(); //破环掉
                 }
-                that.leftScroll = new IScroll('.pane-left', {
+                /*that.leftScroll = new IScroll('.pane-left', {
                     scrollbars: true,
                     preventDefault: false //防止阻止事件
-                });
+                });*/
 
                 /*that.rightScroll = new IScroll('.pane-right', {
                     scrollbars: true,
                     preventDefault:false
                 });*/
+
+                //建立dt高度与名字的映射表
+                that.dtMenu = [];
+                that.dtMenuArr = [];
+                var dts = that.restaurants.find('dt');
+                dts.each(function(){
+                    //console.log(this)
+                    var value = this.getAttribute('data-name');
+                    var key = this.offsetTop - that.paneRight.offset().top;
+                    that.dtMenuArr.push(key);
+                    that.dtMenu.push(value);
+                })
+                console.log(that.dtMenuArr)
             }
         })
     },

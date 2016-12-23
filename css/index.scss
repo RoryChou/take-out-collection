@@ -20,14 +20,12 @@ html,body {
 }
 #foods {
   /* 商家简介 */
-  display: flex;
-  flex-direction: column;
+  display: none;
   .head {
-    flex: 1.5;
     background-color: #666666;
+    height: 195rem*$r;
     .head-main {
       display: flex;
-      height: 195rem*$r;
       padding-top: 12rem*$r;
       .logo img{
         width: 140rem*$r;
@@ -43,7 +41,6 @@ html,body {
   }
   /* 商品列表 */
   .main {
-    flex: 8.5;
     //顶部选项卡：商品、商家
     .nav {
       display: flex;
@@ -71,65 +68,72 @@ html,body {
     .details {
       display: flex;
       .pane-left{
-        overflow: hidden;
-        position: relative;
-        flex: 1;
-      }
-      .menu {
+        height: 1243rem*$r;
         overflow-y: auto;
-        height: 100%;
-        //flex: 1;
-        background-color: #f5f5f5;
-        li {
-          display: block;
-          height: 102rem*$r;
-          line-height: 102rem*$r;
-          text-align: center;
-          font-size: 28rem*$r;
-          border-bottom: 1px solid #e5e5e5;
-          &.active {
-            border-left: 6rem*$r solid $color-main;
-            background-color: #fff;
+        //overflow: hidden;
+        //position: relative;
+        flex: 1;
+        .menu {
+          background-color: #f5f5f5;
+          li {
+            overflow: hidden;
+            display: block;
+            height: 102rem*$r;
+            line-height: 102rem*$r;
+            text-align: center;
+            font-size: 28rem*$r;
+            border-bottom: 1px solid #e5e5e5;
+            &.active {
+              border-left: 6rem*$r solid $color-main;
+              background-color: #fff;
+            }
           }
         }
       }
-      .container {
+      .pane-right{
         flex: 3;
-        dl {
-          font-size: 28rem*$r;
-          dt {
-            height: 63rem*$r;
-            padding: 0 16rem*$r;
-            line-height: 63rem*$r;
-            background-color: #e5e5e5;
-          }
-          dd {
-            display: flex;
-            box-sizing: border-box;
-            height: 278.95rem*$r;
-            padding: 30rem*$r 20rem*$r;
-            .food-img {
-              flex: 2;
-              display: block;
-              margin-right: 4%;
+        height: 1243rem*$r;
+        overflow-y: auto;
+        //overflow: hidden;
+        //position: relative;
+        .container {
+          dl {
+            font-size: 28rem*$r;
+            dt {
+              height: 63rem*$r;
+              padding: 0 16rem*$r;
+              line-height: 63rem*$r;
+              background-color: #e5e5e5;
             }
-            .food-info {
-              position: relative;
-              flex: 8;
-              .food-tit {
-                font-size: 33rem*$r;
-                font-weight: 700;
+            dd {
+              display: flex;
+              box-sizing: border-box;
+              height: 278.95rem*$r;
+              padding: 30rem*$r 20rem*$r;
+              .food-img {
+                flex: 2;
+                display: block;
+                margin-right: 4%;
               }
-              .food-price {
-                position: absolute;
-                bottom: 0;
-                color: #f60;
-                font-size: 32rem*$r;
+              .food-info {
+                position: relative;
+                flex: 8;
+                .food-tit {
+                  font-size: 33rem*$r;
+                  font-weight: 700;
+                }
+                .food-price {
+                  position: absolute;
+                  bottom: 0;
+                  color: #f60;
+                  font-size: 32rem*$r;
+                }
               }
             }
           }
         }
       }
+
     }
   }
 }
