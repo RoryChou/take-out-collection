@@ -75,7 +75,8 @@ var homeObj = {
                 res = res.result.shop_info;
                 var str = '';
                 for(var i in res){
-                    str += '<li>'+ res[i].shop_name +'</li>'
+                    //str += '<li>'+ res[i].shop_name +'</li>'
+                    str += '<li><a href="#foods-'+ res[i].shop_id +'-baidu">'+ res[i].shop_name +'</li>'
                 }
                 that.restaurants.html(str);
             }
