@@ -107,6 +107,7 @@ formObj = $.extend(formObj,{
                 url: "http://waimai.baidu.com/waimai",
                 dataType: "jsonp",
                 /*dataType: "json",*/
+                jsonp: 'callback',
                 data: {
                     qt:'poisug',
                     wd: content,
